@@ -60,6 +60,12 @@ app.controller('PhotoEditorController', ['$scope', 'unsplash', function ($scope,
 		});
 	}
 
+	$scope.$watch('instagram.query', function(nVal, oVal) {
+		if (nVal !== oVal) {
+			$scope.instagram.search();
+		}
+	});
+
 	$scope.instagram.select = function(id){
 		$scope.instagram.selected = id;
 

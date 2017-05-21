@@ -56,11 +56,8 @@
 					<div class="panel panel-default instagram-picker">				
 						<h1>Step 2 - Pick background</h1>
 
-						<div class="input-group search">
-							<input ng-model="instagram.query" type="text" class="form-control" my-enter="instagram.search()" placeholder="Search for...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" ng-click="instagram.search()" type="button">Go!</button>
-							</span>
+						<div class="search">
+							<input ng-model="instagram.query" type="text" class="form-control" ng-model-options="{debounce: 500}" placeholder="Search for...">
 						</div>
 						<div class="input-group search">
 							<input placeholder="URL..." ng-model="url" ng-model-options="{ updateOn: 'blur' }" name="url" ng-change="rerender()" type="text" class="form-control">
