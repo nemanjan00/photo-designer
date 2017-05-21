@@ -46066,10 +46066,10 @@ app.factory('unsplash', ['$http', function($http){
 	return {
 		fetchHashtag: function(hashtag, callback){
 			
-			var endPoint = "https://cors.nemanja.top/https://pablo.buffer.com/ajax/unsplash?search="+hashtag;
+			var endPoint = "https://aggregator-backend.nemanja.top/search/"+encodeURIComponent(hashtag);
 			
 			$http.get(endPoint).success(function(response){
-				callback(response.photos);
+				callback(response);
 			});
 		}
 	}
@@ -46125,7 +46125,7 @@ app.controller('PhotoEditorController', ['$scope', 'unsplash', function ($scope,
 	$scope.instagram.select = function(id){
 		$scope.instagram.selected = id;
 
-		$scope.url = $scope.instagram.pics[$scope.instagram.selected][1];
+		$scope.url = $scope.instagram.pics[$scope.instagram.selected].full;
 
 		$scope.rerender();
 	}
