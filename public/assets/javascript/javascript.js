@@ -46215,7 +46215,7 @@ app.controller('PhotoEditorController', ['$scope', 'unsplash', function ($scope,
 					context.fillText(lines[i], (width - textWidth) / 2, top + fontSizePx * (i + 1) + $scope.settings.textVerticalPosition);
 				}
 
-				document.getElementById("imageOut").src = canvas.toDataURL("image/png");
+				document.getElementById("imageOut").src = canvas.toDataURL("image/png", "image/jpeg", 90);
 			}
 		};
 		imageObj.src = "https://cors.nemanja.top/"+$scope.url; 
