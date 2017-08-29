@@ -94,7 +94,7 @@ app.controller('PhotoEditorController', ['$scope', 'unsplash', function ($scope,
 		imageObj.onload = function(){
 			StackBlur.image(imageObj, canvas, $scope.settings.radius, true);
 
-			var src = canvas.toDataURL("image/png");
+			var src = canvas.toDataURL("image/jpeg", 90);
 
 			var img = document.createElement('img');
 			img.src = src;
