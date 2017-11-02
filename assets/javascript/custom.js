@@ -45,10 +45,10 @@ app.controller('PhotoEditorController', ['$scope', 'unsplash', function ($scope,
 	$scope.settings.shadowColor = "#000000";
 	$scope.settings.fontSize = "40";
 	$scope.settings.textWidth = 0.9;
-	$scope.settings.font = "Roboto";
+	$scope.settings.font = "Anton";
 	$scope.settings.textVerticalPosition = 0;
-	$scope.settings.radius = 45;
-	$scope.settings.darken = 0.5;
+	$scope.settings.radius = 0;
+	$scope.settings.darken = 0;
 
 	$scope.output = {};
 	$scope.output.image = "";
@@ -146,8 +146,8 @@ app.controller('PhotoEditorController', ['$scope', 'unsplash', function ($scope,
 				for(i = 0; i < lines.length; i++){
 					var textWidth = context.measureText(lines[i]).width;
 
-					//context.fillStyle = $scope.settings.shadowColor;
-					//context.fillText(lines[i], (width - textWidth) / 2 + 1, top + fontSizePx * (i + 1) + 1 + $scope.settings.textVerticalPosition);
+					context.shadowColor = 'black';
+					context.shadowBlur = 10;
 
 					context.fillStyle = $scope.settings.textColor;
 					context.fillText(lines[i], (width - textWidth) / 2, top + fontSizePx * (i + 1) + $scope.settings.textVerticalPosition);
